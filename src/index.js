@@ -1,14 +1,16 @@
-  let order = "uday"
-  
-  if(typeof(order)!="string"){
-    console.log("null1")
+ function extractRangoliCenter(design, start, end) {
+  // Your code here
+  if(typeof(design) != "string") {
+    return "null1"
   }
-  let trimmedOrder =order.trim()
+   if(start == "" || end == ""){
+    return "null2"
+   }
+  return design.slice(start,end)
+}
 
-  if(trimmedOrder == ""){
-    console.log("null")
-  }
-console.log( 
-    trimmedOrder.charAt(0) ,
-    trimmedOrder.at(-1)
-)
+console.log(extractRangoliCenter("LOTUS***",3))
+
+
+console.log(false == "")
+
