@@ -1,15 +1,18 @@
-export function addToCart(cart, item) {
+export function formatBill(items) {
   // Your code here
-  if(!Array.isArray(cart)){
-    return -1
+  if(!Array.isArray){
+    return ""
   }
 
-  for(let i =0;i<cart.length;i++){
-    if(typeof(cart[i])!=="string" || item == "") {
-      return null
-    }
-  }
-  return cart.push(item)
+
+  
+
+  let newArray = items.map((i)=>{
+    return i.name
+  })
+
+  return newArray
+  let finalArray = newArray.join("\n")
+  return finalArray
 }
-
-console.log(addToCart(["one","two"], "three"))
+console.log(formatBill(([{name:"Atta",price:40,qty:2}])))
