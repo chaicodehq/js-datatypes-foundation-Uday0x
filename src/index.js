@@ -1,16 +1,10 @@
- function extractRangoliCenter(design, start, end) {
-  // Your code here
-  if(typeof(design) != "string") {
-    return "null1"
+let fares = ["ac",-Infinity,"ii"]
+
+if(fares.length == 0){
+    console.log("galat hai ji")
   }
-   if(start == "" || end == ""){
-    return "null2"
-   }
-  return design.slice(start,end)
-}
-
-console.log(extractRangoliCenter("LOTUS***",3))
-
-
-console.log(false == "")
-
+  for(let i=0;i<fares.length;i++){
+      if(typeof(fares[i])!=="number" || !Number.isInteger(fares[i])){
+        console.log("fun hai ji")
+      } 
+  }
