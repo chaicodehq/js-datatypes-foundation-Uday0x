@@ -1,10 +1,15 @@
-let fares = ["ac",-Infinity,"ii"]
+export function addToCart(cart, item) {
+  // Your code here
+  if(!Array.isArray(cart)){
+    return -1
+  }
 
-if(fares.length == 0){
-    console.log("galat hai ji")
+  for(let i =0;i<cart.length;i++){
+    if(typeof(cart[i])!=="string" || item == "") {
+      return null
+    }
   }
-  for(let i=0;i<fares.length;i++){
-      if(typeof(fares[i])!=="number" || !Number.isInteger(fares[i])){
-        console.log("fun hai ji")
-      } 
-  }
+  return cart.push(item)
+}
+
+console.log(addToCart(["one","two"], "three"))
