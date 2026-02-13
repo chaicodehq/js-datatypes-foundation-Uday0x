@@ -1,19 +1,20 @@
-export function updatePrices(menu, increase) {
+export function countVowels(message) {
   // Your code here
-  if(typeof(menu)!="object" || typeof(increase)!=="number"){
-    return {}
+  if(typeof(message)!="string"){
+    return 0
   }
+  if(message===""){
+    return 0
+  }
+  let foundArray = message.match(/[aeiouAEIOU]/g)
 
-  let copyobj ={...menu}
-  let entries = Object.entries(copyobj)
-  
-
-
-  let updated = entries.map(([item, price]) => {
-  return [item, price + increase]
-})
-
-let finalObj = Object.fromEntries(updated)
-return finalObj
+   if(foundArray==null){
+    return 0
+  }
+  if(foundArray.length!=0){
+    return foundArray.length
+  }
+ 
 }
-console.log(updatePrices({meetha:30, saada:20}, 10))
+
+console.log(countVowels("12345"))

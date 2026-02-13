@@ -1,3 +1,4 @@
+
 /**
  * 💌 Indian Postcard Writer - String Advanced
  *
@@ -53,20 +54,83 @@
  */
 export function writePostcard(sender, receiver, message) {
   // Your code here
+  if(typeof(sender)!="string" || typeof(receiver)!="string" || typeof(message)!="string"){
+    return ""
+  }
+
+  let trimmedSender = sender.trim()
+  let trimmedreceiver = receiver.trim()
+  let trimmedmessage = message.trim()
+
+  if(trimmedSender==="" || trimmedreceiver ==="" || trimmedmessage === ""){
+    return ""
+  }
+
+  let finalTalk = `Priy ${receiver},\n\n${message}\n\nAapka/Aapki,\n${sender}`
+
+  return finalTalk
 }
 
 export function isValidPincode(code) {
   // Your code here
+
+  if(typeof(code)!="string"){
+    return false
+  }
+
+  if(code.startsWith("0")) return false
+
+  if(code.length!==6) return false
+
+  if(/^\d+$/.test(code)) return true
+
+  return false
+  
+
+
 }
 
 export function formatPostcardField(label, value, width) {
   // Your code here
+  if(width === undefined){
+     width=12
+  }
+
+  if(typeof(label)!="string" || typeof(value)!="string"){
+      return ""
+  }
+
+  let finalString = label.padEnd(width) + ": " + value 
+  return finalString
 }
 
 export function isFromState(address, stateCode) {
   // Your code here
+
+  if(typeof(address)!="string" || typeof(stateCode)!="string"){
+    return false
+  }
+
+  let finalstring = address.endsWith(stateCode)
+  return finalstring
+
+  // address.endsWith(stateCode)
 }
 
 export function countVowels(message) {
   // Your code here
+  if(typeof(message)!="string"){
+    return 0
+  }
+  if(message===""){
+    return 0
+  }
+  let foundArray = message.match(/[aeiouAEIOU]/g)
+
+   if(foundArray==null){
+    return 0
+  }
+  if(foundArray.length!=0){
+    return foundArray.length
+  }
 }
