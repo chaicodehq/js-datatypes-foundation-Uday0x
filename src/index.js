@@ -1,20 +1,17 @@
-export function countVowels(message) {
+export function getDataType(value) {
   // Your code here
-  if(typeof(message)!="string"){
-    return 0
-  }
-  if(message===""){
-    return 0
-  }
-  let foundArray = message.match(/[aeiouAEIOU]/g)
+  let newValue = typeof(value)
 
-   if(foundArray==null){
-    return 0
+  if((newValue ==null) === "object"){
+    return "null"
+  }else if((newValue =="[]")==="array"){
+    return "array"
   }
-  if(foundArray.length!=0){
-    return foundArray.length
+  else{
+    return typeof(value)
   }
- 
 }
 
-console.log(countVowels("12345"))
+console.log(getDataType(null))
+
+// console.log(typeof(null))
