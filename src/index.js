@@ -1,29 +1,19 @@
-export function removeRationCard(registry, cardId) {
+export function updatePrices(menu, increase) {
   // Your code here
-      if(typeof(registry)!=="object" || registry==null){
-    return false
+  if(typeof(menu)!="object" || typeof(increase)!=="number"){
+    return {}
   }
 
-  if(typeof(cardId)!=="string"){
-    return false
-  }
+  let copyobj ={...menu}
+  let entries = Object.entries(copyobj)
+  
 
-   let bool = registry.hasOwnProperty(cardId)
 
-   if(bool){
-    let bool1=delete registry.cardId
-    return bool1
-  }
-   else{
-      return false
-    }
+  let updated = entries.map(([item, price]) => {
+  return [item, price + increase]
+})
 
+let finalObj = Object.fromEntries(updated)
+return finalObj
 }
-
-let obj={
-  uday:"krishna",
-  uday2:"krishna",
-  uday3:"krishna"
-}
-console.log(removeRationCard(obj,"uday3"))
-// console.log(obj[uday2])
+console.log(updatePrices({meetha:30, saada:20}, 10))
