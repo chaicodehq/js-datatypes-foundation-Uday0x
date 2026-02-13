@@ -54,20 +54,71 @@
  */
 export function getFamilyNames(registry) {
   // Your code here
+  if(typeof(registry)!=="object" || registry==null){
+    return []
+  }
+  if(Array.isArray(registry)){
+    return []
+  }
+
+  let finalArray = Object.keys(registry)
+  return finalArray
 }
 
 export function getAllFamilies(registry) {
   // Your code here
+   if(typeof(registry)!=="object" || registry==null){
+    return []
+  }
+
+  let finalArray = Object.values(registry)
+  return finalArray
 }
 
 export function getRationCardEntries(registry) {
   // Your code here
+    if(typeof(registry)!=="object" || registry==null){
+    return []
+  }
+
+  let finalArray = Object.entries(registry)
+  return finalArray
 }
 
 export function hasRationCard(registry, cardId) {
   // Your code here
+     if(typeof(registry)!=="object" || registry==null){
+    return false
+  }
+
+  if(typeof(cardId)!=="string"){
+    return false
+  }
+  let finalbool = registry.hasOwnProperty(cardId)
+  return finalbool
 }
 
 export function removeRationCard(registry, cardId) {
   // Your code here
+      if(typeof(registry)!=="object" || registry==null){
+    return false
+  }
+
+  if(typeof(cardId)!=="string"){
+    return false
+  }
+
+   let bool = registry.hasOwnProperty(cardId)
+
+   if(bool){
+    let bool1=delete registry[cardId]
+    return bool1
+  }
+   else{
+      return false
+    }
+   
+   
+
+
 }

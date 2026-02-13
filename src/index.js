@@ -1,18 +1,29 @@
-export function formatBill(items) {
+export function removeRationCard(registry, cardId) {
   // Your code here
-  if(!Array.isArray){
-    return ""
+      if(typeof(registry)!=="object" || registry==null){
+    return false
   }
 
+  if(typeof(cardId)!=="string"){
+    return false
+  }
 
-  
+   let bool = registry.hasOwnProperty(cardId)
 
-  let newArray = items.map((i)=>{
-    return i.name
-  })
+   if(bool){
+    let bool1=delete registry.cardId
+    return bool1
+  }
+   else{
+      return false
+    }
 
-  return newArray
-  let finalArray = newArray.join("\n")
-  return finalArray
 }
-console.log(formatBill(([{name:"Atta",price:40,qty:2}])))
+
+let obj={
+  uday:"krishna",
+  uday2:"krishna",
+  uday3:"krishna"
+}
+console.log(removeRationCard(obj,"uday3"))
+// console.log(obj[uday2])
