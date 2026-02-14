@@ -1,17 +1,5 @@
-export function getDataType(value) {
-  // Your code here
-  let newValue = typeof(value)
+let jsonobject = JSON.stringify(null)
+console.log(jsonobject)
+console.log(typeof(jsonobject))
 
-  if((newValue ==null) === "object"){
-    return "null"
-  }else if((newValue =="[]")==="array"){
-    return "array"
-  }
-  else{
-    return typeof(value)
-  }
-}
-
-console.log(getDataType(null))
-
-// console.log(typeof(null))
+console.log(typeof(undefined))
